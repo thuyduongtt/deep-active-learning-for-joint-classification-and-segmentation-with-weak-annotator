@@ -2845,11 +2845,7 @@ def get_rootpath_2_dataset(args):
     the host.
     """
     datasetname = args.dataset
-
-    parser = argparse.ArgumentParser()
-    input_args = parser.parse_args()
-
-    baseurl = input_args.baseurl
+    baseurl = '/content/paper/data'
 
     if "HOST_XXX" in os.environ.keys():
         if os.environ['HOST_XXX'] == 'laptop':
