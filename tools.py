@@ -38,6 +38,7 @@ from torchvision.transforms import RandomAffine
 from scipy import interp
 from matplotlib import font_manager as fm
 import imageio
+import argparse
 
 
 from deeplearning import criteria
@@ -2844,7 +2845,12 @@ def get_rootpath_2_dataset(args):
     the host.
     """
     datasetname = args.dataset
-    baseurl = None
+
+    parser = argparse.ArgumentParser()
+    input_args = parser.parse_args()
+
+    baseurl = input_args.baseurl
+
     if "HOST_XXX" in os.environ.keys():
         if os.environ['HOST_XXX'] == 'laptop':
             baseurl = "{}/datasets".format(os.environ["EXDRIVE"])

@@ -1157,9 +1157,6 @@ def do_glas():
             }
     args["nbr_folds"] = math.ceil(100. / args["folding"]["vl"])
 
-    print('************')
-    print(args)
-
     reproducibility.init_seed()
     al_split_glas(Dict2Obj(args))
     get_stats(Dict2Obj(args), split=0, fold=0, subset='train')
