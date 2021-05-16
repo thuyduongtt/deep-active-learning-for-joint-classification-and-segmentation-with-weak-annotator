@@ -2847,30 +2847,30 @@ def get_rootpath_2_dataset(args):
     datasetname = args.dataset
     baseurl = '/content/paper/data'
 
-    if "HOST_XXX" in os.environ.keys():
-        if os.environ['HOST_XXX'] == 'laptop':
-            baseurl = "{}/datasets".format(os.environ["EXDRIVE"])
-        elif os.environ['HOST_XXX'] == 'lab':
-            baseurl = "{}/datasets".format(os.environ["NEWHOME"])
-        elif os.environ['HOST_XXX'] == 'gsys':
-            baseurl = "{}/datasets".format(os.environ["SBHOME"])
-        elif os.environ['HOST_XXX'] == 'ESON':
-            baseurl = "{}/datasets".format(os.environ["DATASETSH"])
-
-    elif "CC_CLUSTER" in os.environ.keys():
-        if "SLURM_TMPDIR" in os.environ.keys():
-            # if we are running within a job use the node disc:  $SLURM_TMPDIR
-            baseurl = "{}/datasets".format(os.environ["SLURM_TMPDIR"])
-        else:
-            # if we are not running within a job, use the scratch.
-            # this cate my happen if someone calls this function outside a job.
-            baseurl = "{}/datasets".format(os.environ["SCRATCH"])
-
-    msg_unknown_host = "Sorry, it seems we are enable to recognize the " \
-                       "host. You seem to be new to this code. " \
-                       "So, we recommend you add your baseurl on your own."
-    if baseurl is None:
-        raise ValueError(msg_unknown_host)
+    # if "HOST_XXX" in os.environ.keys():
+    #     if os.environ['HOST_XXX'] == 'laptop':
+    #         baseurl = "{}/datasets".format(os.environ["EXDRIVE"])
+    #     elif os.environ['HOST_XXX'] == 'lab':
+    #         baseurl = "{}/datasets".format(os.environ["NEWHOME"])
+    #     elif os.environ['HOST_XXX'] == 'gsys':
+    #         baseurl = "{}/datasets".format(os.environ["SBHOME"])
+    #     elif os.environ['HOST_XXX'] == 'ESON':
+    #         baseurl = "{}/datasets".format(os.environ["DATASETSH"])
+    #
+    # elif "CC_CLUSTER" in os.environ.keys():
+    #     if "SLURM_TMPDIR" in os.environ.keys():
+    #         # if we are running within a job use the node disc:  $SLURM_TMPDIR
+    #         baseurl = "{}/datasets".format(os.environ["SLURM_TMPDIR"])
+    #     else:
+    #         # if we are not running within a job, use the scratch.
+    #         # this cate my happen if someone calls this function outside a job.
+    #         baseurl = "{}/datasets".format(os.environ["SCRATCH"])
+    #
+    # msg_unknown_host = "Sorry, it seems we are enable to recognize the " \
+    #                    "host. You seem to be new to this code. " \
+    #                    "So, we recommend you add your baseurl on your own."
+    # if baseurl is None:
+    #     raise ValueError(msg_unknown_host)
 
     if datasetname == "bach-part-a-2018":
         baseurl = join(baseurl, "ICIAR-2018-BACH-Challenge")
