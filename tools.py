@@ -2900,8 +2900,8 @@ def get_rootpath_2_dataset(args):
         baseurl = join(baseurl,
                        "GlaS-2015/Warwick QU Dataset (Released 2016_07_08)")
 
-    if baseurl is None:
-        raise ValueError(msg_unknown_host)
+    # if baseurl is None:
+    #     raise ValueError(msg_unknown_host)
 
     return baseurl
 
