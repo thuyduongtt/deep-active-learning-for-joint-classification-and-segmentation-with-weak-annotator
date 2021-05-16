@@ -1191,7 +1191,7 @@ class PhotoDataset(Dataset):
                     mask = TF.resize(
                         mask, size=(int(mask.size[1] * self.ratio_scale_patch),
                                     int(mask.size[0] * self.ratio_scale_patch)),
-                        interpolation=self.scale_algo)
+                        interpolation=TF.InterpolationMode.lanczos)
                     uniqvals_after = np.unique(np.asanyarray(mask))
                     # basically, the unique values should not altered. but,
                     # just in case.
